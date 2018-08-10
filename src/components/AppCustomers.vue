@@ -1,6 +1,16 @@
 <template>
     <div>
-        Customers
+        <h1>Customers</h1>
+
+        <form @submit.prevent>
+            <label>Id</label><br>
+            <input v-model="newCustomer.id" type="text" placeholder="id..."> <br><br>
+            <label>Name</label><br>
+            <input v-model="newCustomer.name" type="text" placeholder="name..."> <br><br>
+            <br><br>
+            <button @click="addCustomer(newCustomer)" type="submit">Add customer</button>
+        </form><br><br><br>
+
         <table>
             <thead>
                 <th>
@@ -33,12 +43,16 @@ import { customerService } from '../services/CustomerService.js'
 export default {
     data() {
         return {
-            customers: customerService.list()
+            customers: customerService.list(),
+            newCustomer: {}
         }
     },
     methods: {
         remove(customer) {
             customerService.remove(customer);
+        },
+        addCustomer(newCustomer) {
+            customerService.addCustomer(this.newCustomer);
         }
     }
 }

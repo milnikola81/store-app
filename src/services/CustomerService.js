@@ -10,10 +10,10 @@ class CustomerService {
         return customers;
     }
     remove(customer) {
-        //console.log(customer);
-        // let index = this.customers.indexOf(customer);
-        // this.customers.splice(index, 1);
         customers.splice(customers.indexOf(customer), 1);
+    }
+    addCustomer(newCustomer) {
+        customers.push(newCustomer);
     }
 }
 
