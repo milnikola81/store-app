@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 
 import AppCustomers from './components/AppCustomers.vue';
 import AppProducts from './components/AppProducts.vue';
+import CustomerService from './services/CustomerService.vue';
 
 Vue.use(VueRouter);
 

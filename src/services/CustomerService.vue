@@ -1,6 +1,5 @@
 <template>
     <div>
-        Customers
         <table>
             <thead>
                 <th>
@@ -18,9 +17,6 @@
                     <td>
                         {{customer.name}}
                     </td>
-                    <td>
-                        <button @click="remove(customer)">Remove</button>
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -28,19 +24,34 @@
 </template>
 
 <script>
-import { customerService } from '../services/CustomerService.js'
-
+const customers = [
+    {id: 1, name: "John Doe", products: []},
+    {id: 2, name: "Homer Simpson", products: []},
+    {id: 3, name: "Johnny Bravo", products: []},
+    {id: 4, name: "Inspector Gadget", products: []}
+];
 export default {
-    data() {
+    name: 'CustomerService',
+    data () {
         return {
-            customers: customerService.list()
+            customers: customers
         }
     },
     methods: {
-        remove(customer) {
-            customerService.remove(customer);
-        }
+        
     }
 }
 </script>
+
+<style scoped>
+table 
+{
+    text-align: left;
+}
+td, th 
+{
+    border: 1px solid gray;
+    padding: 0.2rem;
+}
+</style>
 
