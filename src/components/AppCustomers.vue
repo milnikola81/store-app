@@ -29,6 +29,9 @@
                         {{customer.name}}
                     </td>
                     <td>
+                        <router-link to="">Latest purchases</router-link>
+                    </td>
+                    <td>
                         <button @click="remove(customer)">Remove</button>
                     </td>
                 </tr>
@@ -44,7 +47,7 @@ export default {
     data() {
         return {
             customers: customerService.list(),
-            newCustomer: {}
+            newCustomer: {products: []}
         }
     },
     methods: {
@@ -52,7 +55,7 @@ export default {
             customerService.remove(customer);
         },
         addCustomer(newCustomer) {
-            customerService.addCustomer(this.newCustomer);
+            customerService.addCustomer(newCustomer);
         }
     }
 }

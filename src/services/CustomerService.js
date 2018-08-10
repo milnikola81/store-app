@@ -13,7 +13,11 @@ class CustomerService {
         customers.splice(customers.indexOf(customer), 1);
     }
     addCustomer(newCustomer) {
+        //console.log(newCustomer);
         customers.push(newCustomer);
+    }
+    find(id) {
+        return customers.find(customer => customer.id == id);   
     }
 }
 
