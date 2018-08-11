@@ -1,6 +1,7 @@
 <template>
     <div>
         <h3>Products</h3>
+        <input type="text" v-model="search" placeholder="search products..." />
         <table>
             <thead>
                 <th>
@@ -11,7 +12,7 @@
                 </th>
             </thead>
             <tbody>
-                <tr v-for="(product, index) in products" :key="index">
+                <tr v-for="(product, index) in filteredProducts" :key="index">
                     <td>
                         {{product.id}}
                     </td>
@@ -31,7 +32,15 @@ import { productService } from '../services/ProductService.js'
 export default {
     data() {
         return {
-            products: productService.list()
+            products: productService.list(),
+            search: ''
+        }
+    },
+    computed: {
+        filteredProducts: function() {
+            return this.products.filter((product) => {
+                return product.name.toLowerCase().match(this.search)
+            });
         }
     }
 }
