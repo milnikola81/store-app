@@ -13,7 +13,7 @@ const routes = [
   {path: '/customers', component: AppCustomers},
   {path: '/products', component: AppProducts},
   {path: '/customers/:id', component: LatestPurchases, props: true, name: "customer"}
-  // props true se dodaje da bismo kroz props niz mogli da izvlacimo prodledjene parametre
+  // props true se dodaje da bismo kroz props niz u komponenti mogli da izvlacimo prodledjene parametre
 ];
 
 const router = new VueRouter({

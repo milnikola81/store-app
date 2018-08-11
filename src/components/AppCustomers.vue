@@ -45,10 +45,7 @@ export default {
     data() {
         return {
             customers: customerService.list(),  
-            newCustomer: {
-                id: customerService.nextId(),
-                products: []
-            }
+            newCustomer: {}
         }
     },
     methods: {
@@ -57,10 +54,8 @@ export default {
         },
         addCustomer(newCustomer) {
             customerService.addCustomer(this.newCustomer);
-            console.log(this.newCustomer.id);
-            this.newCustomer = {
-                id: customerService.nextId()
-            };
+            console.log(this.newCustomer);
+            this.newCustomer = {};
         }
     }
 }

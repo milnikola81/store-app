@@ -5,6 +5,8 @@ const customers = [
     {id: 4, name: "Inspector Gadget", products: []}
 ];
 
+let nextId = customers[customers.length-1].id + 1;
+
 class CustomerService {
     list() {
         return customers;
@@ -12,12 +14,11 @@ class CustomerService {
     remove(customer) {
         customers.splice(customers.indexOf(customer), 1);
     }
-    nextId() {
-        return customers[customers.length-1].id + 1;
-    }
     addCustomer(newCustomer) {
+        newCustomer.id = nextId;
+        newCustomer.products = [];
         customers.push(newCustomer);
-        console.log(customers);
+        nextId++;
     }
     find(id) {
         return customers.find(customer => customer.id == id);   
