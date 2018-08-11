@@ -3,8 +3,6 @@
         <h1>Customers</h1>
 
         <form @submit.prevent>
-            <label>Id</label><br>
-            <input v-model="newCustomer.id" type="text" placeholder="id..."> <br><br>
             <label>Name</label><br>
             <input v-model="newCustomer.name" type="text" placeholder="name..."> <br><br>
             <br><br>
@@ -29,7 +27,7 @@
                         {{customer.name}}
                     </td>
                     <td>
-                        <router-link to="">Latest purchases</router-link>
+                        <router-link :to="{ name: 'customer', params: { id: customer.id }}">Latest purchases</router-link>
                     </td>
                     <td>
                         <button @click="remove(customer)">Remove</button>
@@ -46,8 +44,11 @@ import { customerService } from '../services/CustomerService.js'
 export default {
     data() {
         return {
-            customers: customerService.list(),
-            newCustomer: {products: []}
+            customers: customerService.list(),  
+            newCustomer: {
+                id: customerService.nextId(),
+                products: []
+            }
         }
     },
     methods: {
@@ -55,7 +56,11 @@ export default {
             customerService.remove(customer);
         },
         addCustomer(newCustomer) {
-            customerService.addCustomer(newCustomer);
+            customerService.addCustomer(this.newCustomer);
+            console.log(this.newCustomer.id);
+            this.newCustomer = {
+                id: customerService.nextId()
+            };
         }
     }
 }
