@@ -31,6 +31,10 @@
                     <td style="border:none">
                         <button @click="decrement(product)">-</button>
                     </td>
+                    <td style="border:none">
+                        <router-link :to="{ name: 'product', params: { id: product.id }}" tag="button">Buy</router-link>
+                        <!-- <button>Buy</button> -->
+                    </td>
                 </tr>
             </tbody>
         </table>

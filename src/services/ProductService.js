@@ -25,6 +25,9 @@ class ProductService {
             alert ('We are out of '+product.name+'!');
         }
     }
+    find(id) {
+        return products.find(product => product.id == id);   
+    }
 }
 
 export const productService = new ProductService();

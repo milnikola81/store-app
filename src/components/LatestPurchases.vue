@@ -4,7 +4,7 @@
         <h5>Product list</h5>
         <ul>
             <li v-for="(product, index) in customer.products" :key="index">
-                {{product}}
+                {{product.name}}
             </li>
         </ul>
         <router-link to="../customers">Back to customers list</router-link>

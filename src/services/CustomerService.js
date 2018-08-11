@@ -23,6 +23,9 @@ class CustomerService {
     find(id) {
         return customers.find(customer => customer.id == id);   
     }
+    addProductToCustomer(customer, product) {
+        customer.products.push(product);
+    }
 }
 
 export const customerService = new CustomerService();

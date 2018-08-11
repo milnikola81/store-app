@@ -4,7 +4,7 @@
 
         <form @submit.prevent>
             <label>Name</label><br>
-            <input v-model="newCustomer.name" type="text" placeholder="name..."> <br><br>
+            <input v-model="newCustomer.name" type="text" placeholder="name..." required> <br><br>
             <br><br>
             <button @click="addCustomer(newCustomer)" type="submit">Add customer</button>
         </form><br><br><br>
@@ -54,7 +54,6 @@ export default {
         },
         addCustomer(newCustomer) {
             customerService.addCustomer(this.newCustomer);
-            console.log(this.newCustomer);
             this.newCustomer = {};
         }
     }
