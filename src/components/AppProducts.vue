@@ -78,6 +78,7 @@ table {
 th, td {
     border: 1px solid gray;
     padding: 0.5rem;
+    text-align: left;
 }
 
 </style>

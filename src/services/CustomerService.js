@@ -15,10 +15,10 @@ class CustomerService {
         customers.splice(customers.indexOf(customer), 1);
     }
     addCustomer(newCustomer) {
-        newCustomer.id = nextId;
-        newCustomer.products = [];
-        customers.push(newCustomer);
-        nextId++;
+            newCustomer.id = nextId;
+            newCustomer.products = [];
+            customers.push(newCustomer);
+            nextId++;
     }
     find(id) {
         return customers.find(customer => customer.id == id);   

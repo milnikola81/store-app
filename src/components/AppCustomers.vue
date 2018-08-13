@@ -53,8 +53,10 @@ export default {
             customerService.remove(customer);
         },
         addCustomer(newCustomer) {
-            customerService.addCustomer(this.newCustomer);
-            this.newCustomer = {};
+            if(Object.keys(newCustomer).length != 0) { // testing ffor empty object
+                customerService.addCustomer(this.newCustomer);
+                this.newCustomer = {};
+            }
         }
     }
 }
